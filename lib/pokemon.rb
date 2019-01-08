@@ -30,7 +30,7 @@ class Pokemon
 #    end
   end
 
-  def alter_hp(new_hp, database_connection)
+  def alter_hp(new_hp, db)
     database_connection.execute("UPDATE pokemon SET hp = ? WHERE id = ?", new_hp, self.id)
   end
 
