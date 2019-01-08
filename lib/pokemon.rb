@@ -28,7 +28,7 @@ class Pokemon
   end
 
   def alter_hp(new_hp, database_connection)
-    database_connection
+    database_connection.execute
   end
 
 end
