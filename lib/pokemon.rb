@@ -21,9 +21,10 @@ class Pokemon
     @@all
   end
 
-  def self.find(id_nb, database_connection)
-    pokemon_info = database_connection.execute("SELECT * FROM pokemon WHERE id = ?", id_nb)
-    Pokemon.new(id: pokemon_info[0], name: pokemon_info[1], type: pokemon_info[2], hp: pokemon_info[3], db: database_connection)
+  def self.find(id, database_connection)
+    self.all.find do |pokemon|
+      pokemon.id = id
+    end
   end
 
   def alter_hp(new_hp, database_connection)
